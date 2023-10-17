@@ -4,7 +4,8 @@
   "description": "TypeScript DApp",
   "dependencies": {
     "openapi-fetch": "^0.7",
-    "viem": "^1"
+    "viem": "^1",
+    "@deroll/app": "~0.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
