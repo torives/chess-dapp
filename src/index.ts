@@ -48,16 +48,11 @@ const verifierDappHandler: AdvanceRequestHandler = async (
   data: AdvanceRequestData
 ) => {
   //TODO: verify address
-  const [white, black, winner] = decodeAbiParameters(
-    parseAbiParameters("address white, address black, bytes1 winner"),
+  const [winner] = decodeAbiParameters(
+    parseAbiParameters("bytes1 winner"),
     data.payload
   );
-  return handleVerificationResult(
-    data.metadata.msg_sender,
-    white,
-    black,
-    winner
-  );
+  return handleVerificationResult(data.metadata.msg_sender, winner);
 };
 
 const mainHandler: AdvanceRequestHandler = async (data: AdvanceRequestData) => {
@@ -128,8 +123,6 @@ function verificationStarted(
 //TODO:
 function handleVerificationResult(
   verifierDApp: Address,
-  white: Address,
-  black: Address,
   winner: string
 ): RequestHandlerResult {
   return "reject";
